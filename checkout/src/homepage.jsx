@@ -46,10 +46,10 @@ export default function Homepage() {
           <img src={images[index]} alt="Slideshow Image" className="slideshow-image" />
         </div>
         <div className="grid-container">
-          <div className="cat-1"><p>Cat-1</p></div>
-          <div className="cat-2"><p>Cat-2</p></div>
-          <div className="cat-3"><p>Cat-3</p></div>
-          <div className="cat-4"><p>Cat-4</p></div>
+          <div className="cat-1"><p>0$-10$</p></div>
+          <div className="cat-2"><p>11$-30$</p></div>
+          <div className="cat-3"><p>31$-50$</p></div>
+          <div className="cat-4"><p>51$-100$</p></div>
         </div>
         <div className="contact"></div>
       </div>

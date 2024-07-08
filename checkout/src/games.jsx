@@ -76,8 +76,8 @@ export default function Products() {
       <div>
       <div className='nav-page'>
       <div className='nav-filter'>
-      <Link to="/"><button>Go back</button></Link>
-      <button onClick={handleDropdownToggle}>Sort and Filter</button>
+      <Link to="/"><button className='go-back'>Go back</button></Link>
+      <button onClick={handleDropdownToggle} className='sort-filter'>Sort and Filter</button>
       {dropDown && (
         <div className="dropdown">
           <div>
@@ -101,7 +101,7 @@ export default function Products() {
       )}
       </div>
       <div className='cart-button'>
-      <Link to="/cart"><button >Cart</button></Link>
+      <Link to="/cart"><button className='cart'>Cart</button></Link>
       </div>
       </div>
       <div className='show-products'>
@@ -110,16 +110,16 @@ export default function Products() {
             <img src={item.thumb} alt="" />
             <h6>{item.title}</h6>
             <div className='price-section'>
-              <p>{item.normalPrice}</p>
-              <p>{item.salePrice}</p>
-              <p>{item.savings}%</p>
+              <p className='normal-price'>${item.normalPrice}</p>
+              <p className='deal-price'>${item.salePrice}</p>
+              <p className='savings'>{item.savings}%</p>
             </div>
             <div className='review-section'>
               <div className='circle' style={{ backgroundColor: ratingColor(item.steamRatingPercent) }}></div>
-              <div>{item.steamRatingPercent}%</div>
+              <div className>{item.steamRatingPercent}%</div>
               <p>Ratings: {item.steamRatingCount}</p>
             </div>
-            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+            <button onClick={() => handleAddToCart(item)} className='cart-button'>Add to Cart</button>
           </div>
         ))}
       </div>

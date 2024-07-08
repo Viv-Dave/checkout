@@ -2,12 +2,15 @@
 import { Link } from 'react-router-dom';
 import { useCart } from './CartContext';
 import controllerimg from '../public/GameImages/game.svg'
+import './cart.css'
 export default function Cart() {
   const { addtoCart, removeFromCart } = useCart();
 
   return (
     <>
-      <div>This is the Cart Page</div>
+    <div className='cart-page'>
+
+      <div className='cart-page'>This is the Cart Page</div>
       <Link to="/"><button>Go back</button></Link>
       <Link to="/products"><button>Go to Products</button></Link>
       <div className="cart-items">
@@ -22,10 +25,12 @@ export default function Cart() {
           ))
         ) : (
         <>
-        <img src={controllerimg} alt="" />
-        <p>No items in the cart</p>
+        <div>
+        <img src={controllerimg} className='image' alt="" />
+        </div>
         </>
         )}
+      </div>
       </div>
     </>
   );

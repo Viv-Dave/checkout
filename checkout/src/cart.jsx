@@ -5,12 +5,12 @@ import controllerimg from '../public/GameImages/game.svg'
 import './cart.css'
 export default function Cart() {
   const { addtoCart, removeFromCart } = useCart();
-
+  function handleClick() {
+    
+  }
   return (
     <>
     <div className='cart-page'>
-
-      <div className='cart-page'>This is the Cart Page</div>
       <Link to="/"><button>Go back</button></Link>
       <Link to="/products"><button>Go to Products</button></Link>
       <div className="cart-items">
@@ -25,11 +25,15 @@ export default function Cart() {
           ))
         ) : (
         <>
-        <div>
+        <div className='image-container'>
         <img src={controllerimg} className='image' alt="" />
+        <h6>Oops...you do not have any games now. Go to Products and add some games right now!</h6>
         </div>
         </>
         )}
+      <div>
+        <button onClick={handleClick()}>Checkout</button>
+      </div>
       </div>
       </div>
     </>

@@ -11,6 +11,7 @@ export default function Products() {
   const [sortOption, setSortOption] = useState('');
   const [filterOption, setFilterOption] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [inputValue, setInputValue] = useState('');
   useEffect(() => {
     var requestOptions = {
       method: 'GET',
@@ -46,6 +47,7 @@ export default function Products() {
 
   function handleAddToCart(game) {
     setAddtoCart([...addtoCart, game]);
+    setInputValue('Item added');
   }
 
   const sortedAndFilteredGames = listOfGames
@@ -119,7 +121,7 @@ export default function Products() {
               <div className>{item.steamRatingPercent}%</div>
               <p>Ratings: {item.steamRatingCount}</p>
             </div>
-            <button onClick={() => handleAddToCart(item)} className='cart-button'>Add to Cart</button>
+            <button onClick={() => handleAddToCart(item)} className='cart-button' value={inputValue}>Add to Cart</button>
           </div>
         ))}
       </div>

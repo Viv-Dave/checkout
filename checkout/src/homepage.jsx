@@ -45,25 +45,24 @@ export default function Homepage() {
         <div className="slideshow">
           <img src={images[index]} alt="Slideshow Image" className="slideshow-image" />
         </div>
-        <div className="grid-container">
+        <div className="grid-container contact">
           <div className="cat-1">
             <h6>0$-10$</h6>
             <p>Get hours of fun for the price of a coffee!</p>
           </div>
-          <div className="cat-1">
+          <div className="cat-2">
             <p>11$-30$</p>
             <p>Experience epic adventures without breaking the bank!</p>
           </div>
-          <div className="cat-1">
+          <div className="cat-3">
             <p>31$-50$</p>
             <p>Immerse yourself in premium gameplay at an affordable price!</p>
             </div>
-          <div className="cat-1">
+          <div className="cat-4">
             <p>51$-100$</p>
             <p>Unlock the ultimate gaming experience with cutting-edge features and graphics!</p>
             </div>
         </div>
-        <div className="contact"></div>
       </div>
     </>
   );

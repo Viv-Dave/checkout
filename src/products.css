@@ -1,0 +1,245 @@
+.game-card {
+    margin: 20px;
+    border: none;
+    height: max-content;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(135deg, #6ba6ff 0%, #1f3b93 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    color: white;
+}
+
+.game-card:hover {
+    background: linear-gradient(135deg, #1f3b93 0%, #6ba6ff 100%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-card img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.game-card > h6 {
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+.circle {
+    height: 10px;
+    width: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.review-section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.price-section {
+    display: flex;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.show-products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+    padding: 20px;
+}
+
+.nav-page {
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #003366 0%, #005f99 100%);
+    z-index: 1000;
+    border-bottom: 2px solid #003366;
+}
+
+.cart-button {
+    background-color: #1f3b93;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+.cart-button:hover {
+    background-color: #6ba6ff;
+}
+.nav-filter {
+    display: flex;
+    gap: 20px
+}
+.normal-price {
+    text-decoration: line-through;
+    color: #d1d1d1; /* Light gray for original price */
+    font-size: 1em;
+    margin: 0;
+}
+
+.deal-price {
+    color: #ffffff; /* White for the deal price */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.savings {
+    color: #00ffcc; /* Aqua color for savings */
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+}
+.go-back {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+
+.go-back:hover {
+    background-color: #005f99;
+}
+
+.sort-filter {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+
+.sort-filter:hover {
+    background-color: #005f99;
+}
+
+.cart {
+    background-color: #005f99;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+
+.cart:hover {
+    background-color: #003366;
+}
+.dropdown {
+    background-color: #003366;
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.dropdown label {
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.dropdown select {
+    background-color: #005f99;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.dropdown select:hover {
+    background-color: #003366;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #6ba6ff;
+}
+.loader-bar {
+    background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+}
+@media (max-width: 768px) {
+    .game-card {
+        width: 100%;
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .show-products {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nav-page {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .cart-button, .go-back, .sort-filter, .cart {
+        padding: 8px 15px;
+    }
+
+    .dropdown {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .dropdown label, .dropdown select {
+        width: 100%;
+    }
+
+    .review-section, .price-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+}
+
+

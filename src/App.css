@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Slideshow Container */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.slideshow img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  height: 400px;
+}
+
+.slideshow img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slideshow img.inactive {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+/* Category Cards */
+.cat {
+  background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.cat:hover {
+  background-color: #00254c;
+}
+
+.contact {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+}
+
+/* Background Images for Categories */
+.cat-1,
+.cat-2,
+.cat-3,
+.cat-4 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.cat-1 {
+  background-image: linear-gradient(180deg, rgba(253, 253, 253, 0.1), rgba(0, 0, 0, 1)), url(../public/GameImages/Battlefield.jpg);
+}
+
+.cat-2 {
+  background-image: linear-gradient(180deg, rgba(253, 253, 253, 0.1), rgba(0, 0, 0, 1)), url(../public/GameImages/NoMansSky.jpg);
+}
+
+.cat-3 {
+  background-image: linear-gradient(180deg, rgba(253, 253, 253, 0.1), rgba(0, 0, 0, 0.5)), url(../public/GameImages/Skyrim.jpg);
+}
+
+.cat-4 {
+  background-image: linear-gradient(180deg, rgba(253, 253, 253, 0.1), rgba(0, 0, 0, 1)), url(../public/GameImages/GameCat-1.jpeg);
+}
+.cat-4:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-1:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-3:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-2:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+/* Grid Container */
+.grid-container {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-container > div {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: white;
+  background-size: contain;
+  height: 100px;
+  width: 175px;
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container > div:hover {
+  transform: scale(1.05); /* Slightly larger scale on hover */
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+  color: white;
+}
+
+.header > h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+/* Homepage Background */
+.homepage {
+  background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+  margin-left: -10px;
+  margin-right: -10px; 
+  min-height: 100vh;
+}
+
+/* Button Container */
+.button-container {
+  background: linear-gradient(135deg, #005f99 0%, #003366 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+/* Navigation Button */
+.nav-button {
+  height: 40px;
+  padding: 10px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: #00c3ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #00a0db;
+  color: #fff;
+}
+
+.cat-1 {
+  font-size: 1.5rem;
+}
+
+.cat-1 > p {
+  font-size: 13px;
+}
+
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+  } 
+  .slideshow {
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .header {
+    margin-right: -10px;
+  }
+  .button-container {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -80,7 +80,22 @@
 .cat-4 {
   background-image: linear-gradient(180deg, rgba(253, 253, 253, 0.1), rgba(0, 0, 0, 1)), url(../public/GameImages/GameCat-1.jpeg);
 }
-
+.cat-4:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-1:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-3:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
+.cat-2:hover {
+  outline: none;
+  box-shadow: 0 0 10px #6ba6ff;
+}
 /* Grid Container */
 .grid-container {
   display: flex;
@@ -153,7 +168,7 @@
 .nav-button {
   height: 40px;
   padding: 10px;
-  width: 120px; /* Adjusted width for better appearance */
+  width: 120px;
   border-radius: 5px;
   background-color: #00c3ff;
   color: white;
@@ -174,6 +189,7 @@
 .cat-1 > p {
   font-size: 13px;
 }
+
 
 /* Media Query for responsiveness */
 @media (max-width: 768px) {

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useCart } from './CartContext';
 import './products.css';
 import { Loader } from './Loader';
+
 export default function Products() {
-  const { addtoCart, setAddtoCart } = useCart();
+  const { addToCart, cartItems } = useCart();
   const [listOfGames, setListOfGames] = useState([]);
   const [limit, setLimit] = useState(15);
   const [dropDown, setDropdown] = useState(false);
@@ -12,6 +13,7 @@ export default function Products() {
   const [filterOption, setFilterOption] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState('');
+
   useEffect(() => {
     var requestOptions = {
       method: 'GET',
@@ -19,7 +21,10 @@ export default function Products() {
     };
     fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&lowerPrice=30&upperPrice=50", requestOptions)
       .then(response => response.json())
-      .then(result => {setListOfGames(result);setIsLoading(false);})
+      .then(result => {
+        setListOfGames(result);
+        setIsLoading(false);
+      })
       .catch(error => console.log('error', error));
   }, []);
 
@@ -46,7 +51,7 @@ export default function Products() {
   }
 
   function handleAddToCart(game) {
-    setAddtoCart([...addtoCart, game]);
+    addToCart(game);
     setInputValue('Item added');
   }
 
@@ -72,62 +77,63 @@ export default function Products() {
 
   return (
     <>
-    {isLoading ? (
-      <Loader/>
-    ) : (
-      <div>
-      <div className='nav-page'>
-      <div className='nav-filter'>
-      <Link to="/"><button className='go-back'>Go back</button></Link>
-      <button onClick={handleDropdownToggle} className='sort-filter'>Sort and Filter</button>
-      {dropDown && (
-        <div className="dropdown">
-          <div>
-            <label>Sort By:</label>
-            <select value={sortOption} onChange={handleSortChange}>
-              <option value="">Select</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="rating">Rating</option>
-            </select>
+      {isLoading ? (
+        <div className='loader-bar'>
+          <Loader />
+        </div>
+      ) : (
+        <div>
+          <div className='nav-page'>
+            <div className='nav-filter'>
+              <Link to="/"><button className='go-back'>Go to HomePage</button></Link>
+              <button onClick={handleDropdownToggle} className='sort-filter'>Sort and Filter</button>
+              {dropDown && (
+                <div className="dropdown">
+                  <div>
+                    <label>Sort By:</label>
+                    <select value={sortOption} onChange={handleSortChange}>
+                      <option value="">Select</option>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                      <option value="rating">Rating</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Filter By:</label>
+                    <select value={filterOption} onChange={handleFilterChange}>
+                      <option value="">Select</option>
+                      <option value="high-rating">High Rating</option>
+                      <option value="low-price">Low Price</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className='cart-button'>
+              <Link to="/cart"><button className='cart'>Cart</button></Link>
+            </div>
           </div>
-          <div>
-            <label>Filter By:</label>
-            <select value={filterOption} onChange={handleFilterChange}>
-              <option value="">Select</option>
-              <option value="high-rating">High Rating</option>
-              <option value="low-price">Low Price</option>
-            </select>
+          <div className='show-products'>
+            {sortedAndFilteredGames.slice(0, limit ? limit : sortedAndFilteredGames.length).map((item) => (
+              <div key={item.dealID} className='game-card'>
+                <img src={item.thumb} alt="" />
+                <h6>{item.title}</h6>
+                <div className='price-section'>
+                  <p className='normal-price'>${item.normalPrice}</p>
+                  <p className='deal-price'>${item.salePrice}</p>
+                  <p className='savings'>{item.savings}%</p>
+                </div>
+                <div className='review-section'>
+                  <div className='circle' style={{ backgroundColor: ratingColor(item.steamRatingPercent) }}></div>
+                  <div className>{item.steamRatingPercent}%</div>
+                  <p>Ratings: {item.steamRatingCount}</p>
+                </div>
+                <button onClick={() => handleAddToCart(item)} className='cart-button' value={inputValue}>Add to Cart</button>
+              </div>
+            ))}
           </div>
         </div>
       )}
-      </div>
-      <div className='cart-button'>
-      <Link to="/cart"><button className='cart'>Cart</button></Link>
-      </div>
-      </div>
-      <div className='show-products'>
-        {sortedAndFilteredGames.slice(0, limit ? limit : sortedAndFilteredGames.length).map((item) => (
-          <div key={item.dealID} className='game-card'>
-            <img src={item.thumb} alt="" />
-            <h6>{item.title}</h6>
-            <div className='price-section'>
-              <p className='normal-price'>${item.normalPrice}</p>
-              <p className='deal-price'>${item.salePrice}</p>
-              <p className='savings'>{item.savings}%</p>
-            </div>
-            <div className='review-section'>
-              <div className='circle' style={{ backgroundColor: ratingColor(item.steamRatingPercent) }}></div>
-              <div className>{item.steamRatingPercent}%</div>
-              <p>Ratings: {item.steamRatingCount}</p>
-            </div>
-            <button onClick={() => handleAddToCart(item)} className='cart-button' value={inputValue}>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-      </div>
-    )
-    }
     </>
   );
 }

@@ -46,6 +46,7 @@ export default function Homepage() {
           <img src={images[index]} alt="Slideshow Image" className="slideshow-image" />
         </div>
         <div className="grid-container contact">
+
           <div className="cat-1">
             <h6>0$-10$</h6>
             <p>Get hours of fun for the price of a coffee!</p>
